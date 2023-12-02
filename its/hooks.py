@@ -45,9 +45,15 @@ app_license = "mit"
 # home_page = "login"
 
 # website user home page (by Role)
-# role_home_page = {
-#	"Role": "home_page"
-# }
+role_home_page = {
+	"Student": "its"
+}
+
+website_route_rules = [
+	{"from_route": "/its/courses/<path:name>", "to_route": "its/courses/course"},
+    {"from_route": "/its/courses/<path:name>/learn", "to_route": "its/courses/course/learn"}
+
+]
 
 # Generators
 # ----------
@@ -122,13 +128,17 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
+doc_events = {
 #	"*": {
 #		"on_update": "method",
 #		"on_cancel": "method",
 #		"on_trash": "method"
-#	}
-# }
+#	},
+    "User": {
+        "before_insert":"its.events.user.before_insert",
+        "after_insert":"its.events.user.after_insert"
+    }
+}
 
 # Scheduled Tasks
 # ---------------

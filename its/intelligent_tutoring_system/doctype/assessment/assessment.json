@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-29 23:48:07.413245",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "student",
+  "student_name",
+  "category",
+  "course_enrollment",
+  "column_break_fdsm",
+  "educational_content",
+  "learning_module",
+  "grade"
+ ],
+ "fields": [
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Project\nAssignment\nQuiz",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_fdsm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "educational_content.learning_module",
+   "fetch_if_empty": 1,
+   "fieldname": "learning_module",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Learning Module",
+   "options": "Learning Module",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grade",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Grade",
+   "options": "Pass\nFail",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student.full_name",
+   "fetch_if_empty": 1,
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "course_enrollment.educational_content",
+   "fetch_if_empty": 1,
+   "fieldname": "educational_content",
+   "fieldtype": "Link",
+   "label": "Educational Content",
+   "options": "Educational Content",
+   "read_only": 1
+  },
+  {
+   "fieldname": "course_enrollment",
+   "fieldtype": "Link",
+   "label": "Course Enrollment",
+   "options": "Course Enrollment",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-12-02 18:52:02.375759",
+ "modified_by": "Administrator",
+ "module": "Intelligent Tutoring System",
+ "name": "Assessment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,101 @@
+{% extends "templates/itsbase.html" %}
+{% block maincontent %}
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/its">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/its/courses">Courses</a></li>
+                            <li class="breadcrumb-item"><a href="/its/courses/{{course.name}}">{{course.content_name}}</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Learn</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
+
+<!-- Inner Banner -->
+<div class="inner-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="instructor-wrap border-bottom-0 m-0">
+                    
+                    <span class="web-badge mb-3">{{course.learning_module}}</span>
+                </div>
+                <h2>{{course.content_name}}</h2>
+                <p>{{course.category}}</p>
+                <div class="course-info d-flex align-items-center border-bottom-0 m-0 p-0">
+                    <div class="cou-info">
+                        <img src="/assets/its/assets/img/icon/icon-01.svg" alt="">
+                        <p>12+ Lesson</p>
+                    </div>
+                    <div class="cou-info">
+                        <img src="/assets/its/assets/img/icon/timer-icon.svg" alt="">
+                        <p>9hr 30min</p>
+                    </div>
+                    <div class="cou-info">
+                        <img src="/assets/its/assets/img/icon/people.svg" alt="">
+                        <p>32 students enrolled</p>
+                    </div>
+                </div>							
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Inner Banner -->
+
+<!-- Course Content -->
+<section class="page-content course-sec">
+    <div class="container">
+    
+        <div class="row">
+            <div class="col-lg-12">
+            
+                <!-- Overview -->
+                <div class="card overview-sec">
+                    <div class="card-body">
+                        <h5 class="subs-title">Learning</h5>
+                        <h6>Course Content</h6>
+                        <div class="row">
+                            {{course.content}}
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- /Overview -->
+
+                <!-- Reviews -->
+                {% if enrollment.status != "Completed" %}
+                <div class="card review-sec">
+                    <div class="card-body">
+                        <h5 class="subs-title">Assessment</h5>
+                        <div class="instructor-wrap">
+                            <div class="about-instructor">
+                                <div class="instructor-detail">
+                                    <h5><button class="btn btn-secondary enrollment-btn"  id="{{enrollment.name}}">Take Assessment</button></h5>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <!-- /Reviews -->
+                
+                
+            </div>	
+            
+        </div>	
+    </div>
+</section>
+<!-- /Pricing Plan -->
+
+{% endblock %}

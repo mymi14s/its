@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "creation": "2023-11-30 00:01:02.611980",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "student",
+  "student_name",
+  "status",
+  "column_break_jfdf",
+  "educational_content",
+  "learning_module"
+ ],
+ "fields": [
+  {
+   "fieldname": "educational_content",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Educational Content",
+   "options": "Educational Content",
+   "reqd": 1
+  },
+  {
+   "fieldname": "student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "student.full_name",
+   "fetch_if_empty": 1,
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name"
+  },
+  {
+   "fetch_from": "educational_content.learning_module",
+   "fieldname": "learning_module",
+   "fieldtype": "Link",
+   "label": "Learning Module",
+   "options": "Learning Module"
+  },
+  {
+   "fieldname": "column_break_jfdf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "In Progress\nCompleted"
+  }
+ ],
+ "links": [],
+ "modified": "2023-11-30 18:47:16.401751",
+ "modified_by": "Administrator",
+ "module": "Intelligent Tutoring System",
+ "name": "Course Enrollment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Student",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "student_name"
+}
