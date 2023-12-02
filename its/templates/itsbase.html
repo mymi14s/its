@@ -336,4 +336,12 @@
 		
 	</div>
 
+<script>
+	$( document ).ready(()=>{
+		session_user = "{{ frappe.session.user }}"
+		if(session_user=="Guest"){
+			window.location.href="/login"
+		}
+	})
+</script>
 {% endblock %}
