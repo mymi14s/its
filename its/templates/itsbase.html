@@ -344,10 +344,13 @@
 
 <script>
 	$( document ).ready(()=>{
-		session_user = "{{ frappe.session.user }}"
-		if(session_user=="Guest"){
-			window.location.href="/login"
-		}
+		frappe.call({
+			method: "its.utils.is_authenticated", //dotted path to server method
+			callback: function(r) {
+				// code snippet
+				if(!r.message){window.location.href = "/login" }
+			}
+		});
 	})
 </script>
 {% endblock %}
