@@ -87,6 +87,40 @@
                         </div>
                     </div>
                 </div>
+                {% else %}
+                <div class="card comment-sec">
+                    <div class="card-body">
+                        <h5 class="subs-title">Feedback</h5>
+                        <form id="feedback-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-block">
+                                        <label for="full_name">Full Name</label>
+                                        <input type="text" class="form-control" name="full_name" value="{{student.full_name}}" disabled>
+                                        <input type="text" class="form-control" name="student" value="{{student.name}}" hidden>
+                                        <input type="text" class="form-control" name="enrollment" value="{{enrollment.name}}" hidden>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-block">
+                                        <label for="category">Category</label>
+                                        <select name="category" id="category" class="form-control">
+                                            <option value="Corrective">Corrective</option>
+                                            <option value="Motivational">Motivational</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-block">
+                                <label for="comment">Comment</label>
+                                <textarea rows="4" name="comment" class="form-control" placeholder="Your Feedback" required></textarea>
+                            </div>
+                            <div class="submit-section">
+                                <button class="btn submit-btn" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 {% endif %}
                 <!-- /Reviews -->
                 

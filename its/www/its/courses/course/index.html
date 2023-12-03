@@ -130,7 +130,7 @@
                                     </div>
                                     {% if enrollment %}
                                         {% if enrollment.status=='Completed' %}
-                                            <button class="btn btn-enroll w-100">Completed</button>
+                                            <a class="btn btn-enroll w-100" href="/its/courses/{{course.name}}/learn">Completed</a>
                                         {% else %}
                                             <a href="/its/courses/{{course.name}}/learn" class="btn btn-primary w-100">In Progress</a>
                                         {% endif %}

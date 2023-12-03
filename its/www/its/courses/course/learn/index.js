@@ -1,5 +1,4 @@
 $(".enrollment-btn").click((e)=>{
-    console.log(e)
     assessmentFN(e)
 })
 
@@ -38,3 +37,39 @@ let assessmentFN = (e)=>{
         }
     });
 }
+
+$("#feedback-form").submit((e)=>{
+    e.preventDefault();
+    let data = {}
+    $('#feedback-form').serializeArray().forEach(element => {
+        data[element.name] = element.value
+    });
+    $('.submit-btn').hide()
+    frappe.call({
+        method: "its.www.its.courses.course.learn.index.create_feedback", //dotted path to server method
+        type: "POST",
+        args:data,
+        callback: function(r) {
+            // code snippet
+            if(!r.exc){
+                if (r.message.status){
+                    Swal.fire({
+                        title: "Success",
+                        text: "Your feedback has been submitted successfully.",
+                        icon: "success"
+                    });
+                    $('#feedback-form')[0].reset();
+                } else {
+                    Swal.fire({
+                        title: "Error",
+                        html: r.message.text,
+                        icon: "warning"
+                    });
+                }
+            } else {
+                $(`#${e.target.id}`).show();
+            }
+        }
+    });
+    
+})

@@ -4,27 +4,32 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "student",
+  "course_enrollment",
+  "educational_content",
   "type",
   "column_break_rbkb",
+  "student",
   "student_name",
+  "section_break_hydy",
   "comment"
  ],
  "fields": [
   {
+   "fetch_from": "course_enrollment.student",
    "fieldname": "student",
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
-   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Student",
    "options": "Student",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fetch_from": "student.full_name",
    "fetch_if_empty": 1,
    "fieldname": "student_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Student Name",
    "read_only": 1
   },
@@ -46,11 +51,30 @@
   {
    "fieldname": "column_break_rbkb",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "course_enrollment",
+   "fieldtype": "Link",
+   "label": "Course Enrollment",
+   "options": "Course Enrollment",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "course_enrollment.educational_content",
+   "fieldname": "educational_content",
+   "fieldtype": "Link",
+   "label": "Educational Content",
+   "options": "Educational Content",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_hydy",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-11-29 16:13:41.312864",
+ "modified": "2023-12-03 05:14:00.473259",
  "modified_by": "Administrator",
  "module": "Intelligent Tutoring System",
  "name": "Feedback",

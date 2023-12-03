@@ -15,6 +15,7 @@ def get_context(context):
         as_dict=1
     )
     context.enrollment = enrollment
+    context.student = student
     return context
 
 @frappe.whitelist()
@@ -52,3 +53,14 @@ def take_assessment():
             "status":False, 
             "text":e
         }
+
+@frappe.whitelist()
+def create_feedback():
+    data = {
+        'doctype':'Feedback',
+        'course_enrollment':frappe.form_dict.enrollment,
+        'type':frappe.form_dict.category,
+        'comment':frappe.form_dict.comment
+    }
+    feedback = frappe.get_doc(data).insert(ignore_permissions=1)
+    return {"status":True}
