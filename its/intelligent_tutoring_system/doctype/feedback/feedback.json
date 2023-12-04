@@ -16,6 +16,7 @@
  "fields": [
   {
    "fetch_from": "course_enrollment.student",
+   "fetch_if_empty": 1,
    "fieldname": "student",
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
@@ -25,7 +26,7 @@
    "read_only": 1
   },
   {
-   "fetch_from": "student.full_name",
+   "fetch_from": "student.",
    "fetch_if_empty": 1,
    "fieldname": "student_name",
    "fieldtype": "Data",
@@ -74,7 +75,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-03 05:14:00.473259",
+ "modified": "2023-12-04 23:24:04.903991",
  "modified_by": "Administrator",
  "module": "Intelligent Tutoring System",
  "name": "Feedback",
