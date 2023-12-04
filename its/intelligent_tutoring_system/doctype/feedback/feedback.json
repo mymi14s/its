@@ -26,7 +26,7 @@
    "read_only": 1
   },
   {
-   "fetch_from": "student.",
+   "fetch_from": "student.full_name",
    "fetch_if_empty": 1,
    "fieldname": "student_name",
    "fieldtype": "Data",
@@ -62,6 +62,7 @@
   },
   {
    "fetch_from": "course_enrollment.educational_content",
+   "fetch_if_empty": 1,
    "fieldname": "educational_content",
    "fieldtype": "Link",
    "label": "Educational Content",
@@ -75,7 +76,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-04 23:24:04.903991",
+ "modified": "2023-12-04 23:31:27.092687",
  "modified_by": "Administrator",
  "module": "Intelligent Tutoring System",
  "name": "Feedback",

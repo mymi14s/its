@@ -11,4 +11,4 @@ class Feedback(Document):
 			student = frappe.get_doc("Student", frappe.db.get_value("Course Enrollment", {
 				'name':self.course_enrollment
 			}, field="student"))
-			self.student = student
+			self.student = student.name
